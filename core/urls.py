@@ -3,7 +3,9 @@ from .views import *
 
 
 urlpatterns = [
-    path('', home)
+    path('', home),
+    path('postform/', Post),
+    
 ]
 
 

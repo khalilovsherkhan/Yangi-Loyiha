@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,16 +24,16 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet"> 
 
     <!-- Bootstrap core CSS -->
-    <link href="{% static 'css/bootstrap.css%' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
 
     <!-- FontAwesome Icons core CSS -->
     <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{%  static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet"><!--shu qismiga e'tiborli bo'l endi odam bashara bo'ldi😁😂 hammasini man qilganday ula -->
 
     <!-- Responsive styles for this template -->
-    <link href="{%  static 'css/responsive.css' %}" rel="stylesheet">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
 
     <!-- Colors for this template -->
     <link href="{% static 'css/colors.css' %}" rel="stylesheet">
@@ -756,141 +755,39 @@
 
                 <div class="row">
                     <div class="col-lg-9">
+                        {% for postlar in data %}
                         <div class="blog-list clearfix">
                             <div class="section-title">
-                                <h3 class="color-green"><a href="blog-category-01.html" title="">Travel</a></h3>
+                                <h3 class="color-green"><a href="blog-category-01.html" title="">{{postlar.post_category}}</a></h3>
                             </div><!-- end title -->
 
                             <div class="blog-box row">
                                 <div class="col-md-4">
                                     <div class="post-media">
                                         <a href="single.html" title="">
-                                            <img src="upload/blog_square_01.jpg" alt="" class="img-fluid">
+                                            <img src="{{postlar.post_image.url}}" alt="" class="img-fluid">
                                             <div class="hovereffect"></div>
                                         </a>
                                     </div><!-- end media -->
                                 </div><!-- end col -->
 
                                 <div class="blog-meta big-meta col-md-8">
-                                    <h4><a href="single.html" title="">5 Beautiful buildings you need to visit without dying</a></h4>
-                                    <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
-                                    <small><a href="blog-category-01.html" title="">Travel</a></small>
-                                    <small><a href="single.html" title="">21 July, 2017</a></small>
-                                    <small><a href="blog-author.html" title="">by Boby</a></small>
+                                    <h4><a href="single.html" title="">{{postlar.post_title}}</a></h4>
+                                    <p>{{postlar.post_content}}</p>
+                                    <small><a href="blog-category-01.html" title="">{{postlar.post_category}}</a></small>
+                                    <small><a href="single.html" title="">{{postlar.post_date}}</a></small>
+                                    <small><a href="blog-author.html" title="">#{{postlar.post_hashtag}}</a></small>
                                 </div><!-- end meta -->
                             </div><!-- end blog-box -->
 
                             <hr class="invis">
 
-                            <div class="blog-box row">
-                                <div class="col-md-4">
-                                    <div class="post-media">
-                                        <a href="single.html" title="">
-                                            <img src="upload/blog_square_02.jpg" alt="" class="img-fluid">
-                                            <div class="hovereffect"></div>
-                                        </a>
-                                    </div><!-- end media -->
-                                </div><!-- end col -->
 
-                                <div class="blog-meta big-meta col-md-8">
-                                    <h4><a href="single.html" title="">Let's make an introduction to the glorious world of history</a></h4>
-                                    <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
-                                    <small><a href="blog-category-01.html" title="">Travel</a></small>
-                                    <small><a href="single.html" title="">20 July, 2017</a></small>
-                                    <small><a href="blog-author.html" title="">by Samanta</a></small>
-                                </div><!-- end meta -->
-                            </div><!-- end blog-box -->
-
-                            <hr class="invis">
-
-                            <div class="blog-box row">
-                                <div class="col-md-4">
-                                    <div class="post-media">
-                                        <a href="single.html" title="">
-                                            <img src="upload/blog_square_03.jpg" alt="" class="img-fluid">
-                                            <div class="hovereffect"></div>
-                                        </a>
-                                    </div><!-- end media -->
-                                </div><!-- end col -->
-
-                                <div class="blog-meta big-meta col-md-8">
-                                    <h4><a href="single.html" title="">Did you see the most beautiful sea in the world?</a></h4>
-                                    <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
-                                    <small><a href="blog-category-01.html" title="">Travel</a></small>
-                                    <small><a href="single.html" title="">19 July, 2017</a></small>
-                                    <small><a href="blog-author.html" title="">by Jackie</a></small>
-                                </div><!-- end meta -->
-                            </div><!-- end blog-box -->
                         </div><!-- end blog-list -->
-
+                        {% endfor %}
                         <hr class="invis">
 
-                        <div class="blog-list clearfix">
-                            <div class="section-title">
-                                <h3 class="color-red"><a href="blog-category-01.html" title="">Food</a></h3>
-                            </div><!-- end title -->
-
-                            <div class="blog-box row">
-                                <div class="col-md-4">
-                                    <div class="post-media">
-                                        <a href="single.html" title="">
-                                            <img src="upload/blog_square_05.jpg" alt="" class="img-fluid">
-                                            <div class="hovereffect"></div>
-                                        </a>
-                                    </div><!-- end media -->
-                                </div><!-- end col -->
-
-                                <div class="blog-meta big-meta col-md-8">
-                                    <h4><a href="single.html" title="">Banana-chip chocolate cake recipe</a></h4>
-                                    <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
-                                    <small><a href="blog-category-01.html" title="">Food</a></small>
-                                    <small><a href="single.html" title="">11 July, 2017</a></small>
-                                    <small><a href="blog-author.html" title="">by Matilda</a></small>
-                                </div><!-- end meta -->
-                            </div><!-- end blog-box -->
-
-                            <hr class="invis">
-
-                            <div class="blog-box row">
-                                <div class="col-md-4">
-                                    <div class="post-media">
-                                        <a href="single.html" title="">
-                                            <img src="upload/blog_square_06.jpg" alt="" class="img-fluid">
-                                            <div class="hovereffect"></div>
-                                        </a>
-                                    </div><!-- end media -->
-                                </div><!-- end col -->
-
-                                <div class="blog-meta big-meta col-md-8">
-                                    <h4><a href="single.html" title="">10 practical ways to choose organic vegetables</a></h4>
-                                    <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
-                                    <small><a href="blog-category-01.html" title="">Food</a></small>
-                                    <small><a href="single.html" title="">10 July, 2017</a></small>
-                                    <small><a href="blog-author.html" title="">by Matilda</a></small>
-                                </div><!-- end meta -->
-                            </div><!-- end blog-box -->
-
-                            <hr class="invis">
-
-                            <div class="blog-box row">
-                                <div class="col-md-4">
-                                    <div class="post-media">
-                                        <a href="single.html" title="">
-                                            <img src="upload/blog_square_07.jpg" alt="" class="img-fluid">
-                                            <div class="hovereffect"></div>
-                                        </a>
-                                    </div><!-- end media -->
-                                </div><!-- end col -->
-
-                                <div class="blog-meta big-meta col-md-8">
-                                    <h4><a href="single.html" title="">We are making homemade ravioli</a></h4>
-                                    <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
-                                    <small><a href="blog-category-01.html" title="">Food</a></small>
-                                    <small><a href="single.html" title="">09 July, 2017</a></small>
-                                    <small><a href="blog-author.html" title="">by Matilda</a></small>
-                                </div><!-- end meta -->
-                            </div><!-- end blog-box -->
-                        </div><!-- end blog-list -->
+                     
                     </div><!-- end col -->
 
                     <div class="col-lg-3">
@@ -1060,73 +957,6 @@
                         </div><!-- end widget -->
                     </div><!-- end col -->
 
-                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                        <div class="widget">
-                            <h2 class="widget-title">Popular Posts</h2>
-                            <div class="blog-list-widget">
-                                <div class="list-group">
-                                    <a href="single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                                        <div class="w-100 justify-content-between">
-                                            <img src="upload/blog_square_04.jpg" alt="" class="img-fluid float-left">
-                                            <h5 class="mb-1">Banana-chip chocolate cake recipe with customs</h5>
-                                            <span class="rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </div>
-                                    </a>
-
-                                    <a href="single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                                        <div class="w-100 justify-content-between">
-                                            <img src="upload/blog_square_07.jpg" alt="" class="img-fluid float-left">
-                                            <h5 class="mb-1">10 practical ways to choose organic vegetables</h5>
-                                            <span class="rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </div>
-                                    </a>
-
-                                    <a href="single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                                        <div class="w-100 last-item justify-content-between">
-                                            <img src="upload/blog_square_06.jpg" alt="" class="img-fluid float-left">
-                                            <h5 class="mb-1">We are making homemade ravioli, nice and good</h5>
-                                            <span class="rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div><!-- end blog-list -->
-                        </div><!-- end widget -->
-                    </div><!-- end col -->
-
-                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                        <div class="widget">
-                            <h2 class="widget-title">Popular Categories</h2>
-                            <div class="link-widget">
-                                <ul>
-                                    <li><a href="#">Fahsion <span>(21)</span></a></li>
-                                    <li><a href="#">Lifestyle <span>(15)</span></a></li>
-                                    <li><a href="#">Art & Design <span>(31)</span></a></li>
-                                    <li><a href="#">Health Beauty <span>(22)</span></a></li>
-                                    <li><a href="#">Clothing <span>(66)</span></a></li>
-                                    <li><a href="#">Entertaintment <span>(11)</span></a></li>
-                                    <li><a href="#">Food & Drink <span>(87)</span></a></li>
-                                </ul>
-                            </div><!-- end link-widget -->
-                        </div><!-- end widget -->
-                    </div><!-- end col -->
                 </div><!-- end row -->
 
                 <hr class="invis1">
