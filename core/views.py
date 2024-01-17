@@ -4,7 +4,7 @@ from .forms import *
 # Create your views here.
 def home (request):
     data = Post.objects.all()
-    bulim = Bulim.objects.all()
+    bulim = BulimData.objects.all()
     context = {
         'data':data,
         'bulim':bulim

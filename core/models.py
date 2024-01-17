@@ -15,13 +15,11 @@ class BulimData(models.Model):
     post_image = models.ImageField(upload_to='post-image/')
     post_hashtag = models.CharField(max_length=255)
     post_date = models.DateTimeField(auto_now=True)
-
-    def get_absolute_url(self):
-        return reverse('bulim', kwargs={'pk': self.pk})
     
     def __str__(self):
         return self.post_title
-    
+    def get_absolute_url(self):
+        return reverse('bulim', kwargs={'pk': self.pk})
 
 class Category(models.Model):
     title = models.CharField(max_length = 255)
