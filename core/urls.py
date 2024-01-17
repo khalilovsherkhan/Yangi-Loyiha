@@ -3,8 +3,9 @@ from .views import *
 
 
 urlpatterns = [
-    path('', home),
+    path('', home, name='home'),
     path('postform/', Post),
+    path('bulim/<int:pk>/', bulimdata, name='bulim')
     
 ]
 

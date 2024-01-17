@@ -1,20 +1,29 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from .forms import *
 # Create your views here.
 def home (request):
     data = Post.objects.all()
+    bulim = Bulim.objects.all()
     context = {
-        'data':data}
+        'data':data,
+        'bulim':bulim
+        }
     return render(request, 'index.html', context)
+
+def bulimdata(request, pk):
+    bulim = get_object_or_404(BulimData, pk=pk)
+    return render(request, 'bulim.html', {'bulim':bulim})
+
+
 def formpost(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('model_ro'yxati')
- else:
-        forma= MeningModelFormasi()
+            return redirect('model_ro\'yxati')
+    else:
+        forma = PostForm()
     return render(request, 'form.html',{'forma': forma})
         
 

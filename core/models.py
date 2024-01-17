@@ -1,9 +1,30 @@
 from django.db import models
-
+from django.urls import reverse
 # Create your models here.
+
+class Bulim(models.Model):
+    title = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.title
+    
+class BulimData(models.Model):
+    post_category = models.ForeignKey(Bulim, on_delete=models.CASCADE)
+    post_title = models.CharField(max_length = 255)
+    post_content = models.TextField()
+    post_image = models.ImageField(upload_to='post-image/')
+    post_hashtag = models.CharField(max_length=255)
+    post_date = models.DateTimeField(auto_now=True)
+
+    def get_absolute_url(self):
+        return reverse('bulim', kwargs={'pk': self.pk})
+    
+    def __str__(self):
+        return self.post_title
+    
+
 class Category(models.Model):
     title = models.CharField(max_length = 255)
-    content = models.TextField()
     def __str__(self):
         return self.title
 
